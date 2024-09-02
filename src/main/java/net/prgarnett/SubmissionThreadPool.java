@@ -10,8 +10,9 @@ public class SubmissionThreadPool
 {
 	private final Driver driver;
 	private String database;
-	private List<SubmissionThread> subThreads;
-	private int cores, count;
+	private final List<SubmissionThread> subThreads;
+	private final int cores;
+    private int count;
 	
 	public SubmissionThreadPool(Driver driver, int cores)
 	{

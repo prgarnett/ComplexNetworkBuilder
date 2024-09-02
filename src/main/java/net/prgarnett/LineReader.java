@@ -26,9 +26,9 @@ import org.neo4j.driver.GraphDatabase;
 public class LineReader
 {
 	private final Driver driver;
-	private int cores;
-	private SubmissionThreadPool threadpool;
-	private String mode;
+	private final int cores;
+	private final SubmissionThreadPool threadpool;
+	private final String mode;
     
     /**
      * Load up the driver, using the server address, password, and username. Set whether this is an encrypted connection.

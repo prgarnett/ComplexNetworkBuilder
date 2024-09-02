@@ -31,7 +31,7 @@ public class DotMakeNodes
 		lines = new ArrayList<NodeObject>();
 		ranksList = new ArrayList<String>();
 		edgeList = new ArrayList<String>();
-		rankLine = new String();
+		rankLine = "";
 		rankDates = new ArrayList<LocalDate>();
 		this.RelsFile = RelsFile;
 	}

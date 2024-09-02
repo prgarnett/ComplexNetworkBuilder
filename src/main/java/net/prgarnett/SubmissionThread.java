@@ -31,9 +31,9 @@ import org.neo4j.driver.summary.SummaryCounters;
 
 public class SubmissionThread implements Runnable
 {
-	private Driver driver;
-	private SessionConfig sConf;
-	private List<String[]> queries;
+	private final Driver driver;
+	private final SessionConfig sConf;
+	private final List<String[]> queries;
     private boolean doStop;
 	
 	public SubmissionThread(SessionConfig sConf, Driver driver)
