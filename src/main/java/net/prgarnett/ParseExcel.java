@@ -27,11 +27,11 @@ public class ParseExcel {
 
             // Iterate through CSV records
             for (CSVRecord record : parser) {
-                String name = record.get("Project_title");
-                String PI = record.get("PI");
-                String core_team = record.get("Core_team");
-                String start_date = record.get("Start_date");
-                String end_date = record.get("End_date");
+                String name = record.get("Project_title").replaceAll("\n", "");
+                String PI = record.get("PI").replaceAll("\n", "");
+                String core_team = record.get("Core_team").replaceAll("\n", "");
+                String start_date = record.get("Start_date").replaceAll("\n", "");
+                String end_date = record.get("End_date").replaceAll("\n", "");
 
 
                 String Healthy_livelihoods = record.get("Healthy livelihoods");
