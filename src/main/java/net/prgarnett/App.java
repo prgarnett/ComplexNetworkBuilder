@@ -87,9 +87,10 @@ public class App {
 			dotProcessor.readTheRelsFile();
 			dotProcessor.saveTheFile();
 		}
-		else if(args[0].equals("Dump"))
+		else if(args[0].equals("ParseCSV"))
 		{
-			
+			ParseExcel parser = new ParseExcel(args[1]);
+			parser.readTheExcel();
 		}
 		else if(args[0].equals("ConfigFile"))
 		{
