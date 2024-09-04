@@ -27,11 +27,11 @@ public class ParseExcel {
 
             // Iterate through CSV records
             for (CSVRecord record : parser) {
-                String name = record.get("Project_title").replaceAll("\n", "");
-                String PI = record.get("PI").replaceAll("\n", "");
-                String core_team = record.get("Core_team").replaceAll("\n", "");
-                String start_date = record.get("Start_date").replaceAll("\n", "");
-                String end_date = record.get("End_date").replaceAll("\n", "");
+                String name = record.get("Project_title").replaceAll("\n", " ");
+                String PI = record.get("PI").replaceAll("\n", " ");
+                String core_team = record.get("Core_team").replaceAll("\n", " ");
+                String start_date = record.get("Start_date").replaceAll("\n", " ");
+                String end_date = record.get("End_date").replaceAll("\n", " ");
 
 
                 String Healthy_livelihoods = record.get("Healthy livelihoods");
@@ -41,30 +41,34 @@ public class ParseExcel {
                 String Healthy_weight = record.get("Food and healthy weight");
                 String Evaluation_theme = record.get("Evaluation theme");
 
-                writer.write("Person,Project,name," + PI + ",name," + name + ",Project_lead,date," + start_date + ",end_date," + end_date + "\n");
+                String[] PIs = PI.split(",");
+                for (String lead : PIs) {
+                    writer.write("\"Person\",\"Project\",\"name\",\"" + lead.trim() + "\",\"name\",\"" + name + "\",\"Project_lead\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
+                }
+
                 String[] members = core_team.split(",");
                 // Iterate through the array of items
                 for (String member : members) {
-                    writer.write("Person,Project,name," + member.trim() + ",name," + name + ",Team_member,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Person\",\"Project\",\"name\",\"" + member.trim() + "\",\"name\",\"" + name + "\",\"Team_member\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
 
                 if(Healthy_livelihoods.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,Healthy Livelihoods,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"Healthy Livelihoods\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
                 if(Healthy_places.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,Healthy Places,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"Healthy Places\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
                 if(Healthy_learning.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,Healthy Learning,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"Healthy Learning\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
                 if(Physical_activity.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,Physical Activity,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"Physical Activity\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
                 if(Healthy_weight.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,Food and healthy weight,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"Food and healthy weight\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
                 if(Evaluation_theme.equals("Yes")){
-                    writer.write("Project,ActEarly,name," + name + ",name,UYPRP Evaluation Theme,Lead_theme,date," + start_date + ",end_date," + end_date + "\n");
+                    writer.write("\"Project\",\"ActEarly\",\"name\",\"" + name + "\",\"name\",\"UYPRP Evaluation Theme\",\"Lead_theme\",\"date\",\"" + start_date + "\",\"end_date\",\"" + end_date + "\"\n");
                 }
             }
         }
