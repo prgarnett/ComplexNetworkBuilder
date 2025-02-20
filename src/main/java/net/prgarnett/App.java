@@ -91,6 +91,10 @@ public class App {
 		{
 			ParseExcel parser = new ParseExcel(args[1]);
 			parser.readTheExcel();
+		} else if (args[0].equals("CheckDataFiles"))
+		{
+			CheckNodes checkNodes = new CheckNodes(args[1], args[2], args[3]);
+			checkNodes.runTheSearch();
 		}
 		else if(args[0].equals("ConfigFile"))
 		{
