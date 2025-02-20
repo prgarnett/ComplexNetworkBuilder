@@ -81,9 +81,9 @@ public class App {
 		}
 		else if(args[0].equals("DotNodes"))
 		{
-			DotMakeNodes dotProcessor = new DotMakeNodes(args[2]);
+			DotMakeNodes dotProcessor = new DotMakeNodes(args[3]);
 			dotProcessor.setFilepath(args[1]);
-			dotProcessor.readTheNodesFile();
+			dotProcessor.readTheNodesFile(args[2]);
 			dotProcessor.readTheRelsFile();
 			dotProcessor.saveTheFile();
 		}

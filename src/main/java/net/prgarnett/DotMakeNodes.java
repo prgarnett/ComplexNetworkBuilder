@@ -36,7 +36,7 @@ public class DotMakeNodes
 		this.RelsFile = RelsFile;
 	}
 
-	public void readTheNodesFile()
+	public void readTheNodesFile(String NodesFile)
 	{
 		String type="", firstPart;
 		int node_count=0;
@@ -44,7 +44,7 @@ public class DotMakeNodes
 		
 		try
 		{
-			Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(new FileReader(this.getFilepath()+"Nodes.csv"));
+			Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(new FileReader(this.getFilepath()+NodesFile));
 			
 			for (CSVRecord record : records)
             {
